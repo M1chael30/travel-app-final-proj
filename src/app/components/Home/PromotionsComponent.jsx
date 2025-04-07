@@ -1,8 +1,6 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import plane from "../../../../assets/plane.png";
 import { COLOR } from "../../constants/data";
-import CustomButton from "../../reusablecomponents/CustomButton";
-import { SquareArrowOutUpRight } from "lucide-react-native";
 
 const PromotionsComponent = () => {
  return (
@@ -24,18 +22,6 @@ const PromotionsComponent = () => {
      >
       Limited Time Offer
      </Text>
-     <CustomButton variant={COLOR.orange} height={40}>
-      <Text
-       style={{
-        color: "white",
-        fontFamily: "Poppins_700Bold",
-        marginBottom: -4,
-       }}
-      >
-       Book Now
-      </Text>
-      <SquareArrowOutUpRight size={20} color={"white"} />
-     </CustomButton>
     </View>
     <Image source={plane} style={styles.planeImg} />
    </View>

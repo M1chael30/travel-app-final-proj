@@ -11,6 +11,10 @@ const BottomNavigation = () => {
     headerShown: false,
     tabBarShowLabel: false,
     tabBarHideOnKeyboard: true,
+    tabBarStyle: {
+     backgroundColor: COLOR.medyoYellow,
+     borderTopWidth: 0,
+    },
    }}
   >
    {BOTTOM_SCREENS.map((screen) => {

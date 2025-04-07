@@ -1,6 +1,6 @@
-import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
+import { StyleSheet, useWindowDimensions, View } from "react-native";
 import React from "react";
-import { Avatar } from "react-native-paper";
+import { Avatar, Text } from "react-native-paper";
 import { APP_NAME, TITLE_NAME } from "../../constants/data";
 
 const HeaderComponent = () => {
@@ -9,8 +9,12 @@ const HeaderComponent = () => {
  return (
   <View style={[styles.container, { height: height / 12 }]}>
    <View>
-    <Text style={styles.headingText}>Hello, {TITLE_NAME}</Text>
-    <Text style={styles.subHeadingText}>Welcome to {APP_NAME}</Text>
+    <Text style={{ fontFamily: "Poppins_700Bold" }} variant="titleLarge">
+     Hello, {TITLE_NAME}
+    </Text>
+    <Text variant="titleSmall" style={{ fontFamily: "Poppins_400Regular" }}>
+     Welcome to {APP_NAME}
+    </Text>
    </View>
    <Avatar.Image
     size={45}
@@ -25,23 +29,9 @@ export default HeaderComponent;
 
 const styles = StyleSheet.create({
  container: {
-  width: "100%",
-  padding: 10,
   display: "flex",
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
- },
- headingText: {
-  fontSize: 20,
-  letterSpacing: 1,
-  fontFamily: "Poppins_700Bold",
-  marginBottom: -10,
- },
- subHeadingText: {
-  fontSize: 12,
-  color: "#6c757d",
-  letterSpacing: 0.3,
-  fontFamily: "Poppins_400Regular",
  },
 });

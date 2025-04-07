@@ -1,37 +1,94 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
+import { Button, Card, Text } from "react-native-paper";
+import { StyleSheet, View } from "react-native";
+import { DollarSign, Heart, MapPinned } from "lucide-react-native";
+import { COLOR } from "../../constants/data";
+import { useNavigation } from "@react-navigation/native";
 
-const PopularCardComponent = ({ img }) => {
+const MyComponent = ({ location, address, price, isFavorite, img }) => {
+ const navigation = useNavigation();
+
  return (
-  <TouchableOpacity>
-   <View style={styles.card}>
-    <View>
-     <Image source={require(img)} />
+  <Card
+   style={styles.card}
+   onPress={() => navigation.navigate("Details", { address })}
+  >
+   {/* heart */}
+   <Button style={styles.heart} buttonColor="white">
+    {isFavorite ? (
+     <Heart color={"black"} size={25} fill={"red"} strokeWidth={0} />
+    ) : (
+     <Heart color={"black"} size={25} />
+    )}
+   </Button>
+   <Card.Cover style={styles.img} source={img} resizeMode="cover" />
+
+   <Card.Content style={styles.cardContent}>
+    <View style={styles.title}>
+     {/* location */}
+     <Text variant="titleMedium" style={{ fontFamily: "Poppins_700Bold" }}>
+      {location}
+     </Text>
+
+     {/* price */}
+     <View style={styles.price}>
+      <DollarSign size={17} color={"black"} />
+      <Text variant="titleMedium" style={{ fontFamily: "Poppins_400Regular" }}>
+       {price}
+      </Text>
+     </View>
     </View>
-   </View>
-  </TouchableOpacity>
+
+    {/* description */}
+    <View style={styles.description}>
+     <MapPinned color={COLOR.gray} size={15} />
+     <Text variant="titleSmall" style={{ fontFamily: "Poppins_400Regular" }}>
+      {address}
+     </Text>
+    </View>
+   </Card.Content>
+  </Card>
  );
 };
-
-export default PopularCardComponent;
+export default MyComponent;
 
 const styles = StyleSheet.create({
  card: {
-  backgroundColor: "#fff",
-  borderRadius: 10,
-  padding: 10,
-  marginBottom: 10,
-  shadowColor: "#000",
-  shadowOffset: {
-   width: 0,
-   height: 2,
-  },
-  shadowOpacity: 0.25,
-  shadowRadius: 3.84,
-  elevation: 1,
-  flex: 1,
-  margin: 5,
-  justifyContent: "center",
+  margin: 10,
+  position: "relative",
+ },
+ img: {
+  borderBottomLeftRadius: 0,
+  borderBottomRightRadius: 0,
+  resizeMode: "center",
+ },
+ cardContent: {
+  marginTop: 10,
+ },
+ title: {
+  display: "flex",
   alignItems: "center",
+  justifyContent: "space-between",
+  flexDirection: "row",
+  gap: 1,
+ },
+ price: {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  flexDirection: "row",
+  gap: 1,
+ },
+ description: {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  flexDirection: "row",
+  gap: 5,
+ },
+ heart: {
+  position: "absolute",
+  top: 10,
+  right: 10,
+  zIndex: 1,
  },
 });

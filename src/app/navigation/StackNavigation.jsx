@@ -6,10 +6,14 @@ const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
  return (
-  <Stack.Navigator screenOptions={{ headerShown: false }}>
+  <Stack.Navigator
+   screenOptions={{ headerShown: false }}
+   initialRouteName="HomeIndex"
+  >
    {STACK_SCREENS.map((screen) => {
     return (
      <Stack.Screen
+      options={{ headerShown: screen?.headerShown }}
       key={screen.name}
       name={screen.name}
       component={screen.component}

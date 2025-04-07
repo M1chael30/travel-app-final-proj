@@ -5,6 +5,7 @@ import BottomNavigation from "../navigation/BottomNavigation";
 import HomeScreen from "../screens/HomeScreen";
 import FavoriteScreen from "../screens/FavoriteScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import DetailsScreen from "../screens/DetailsScreen";
 
 import { Heart, Home, User } from "lucide-react-native";
 
@@ -24,6 +25,12 @@ export const STACK_SCREENS = [
  {
   name: "HomeIndex",
   component: BottomNavigation,
+  headerShown: false,
+ },
+ {
+  name: "Details",
+  component: DetailsScreen,
+  headerShown: false,
  },
 ];
 
