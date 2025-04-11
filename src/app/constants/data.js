@@ -51,9 +51,10 @@ export const TRAVEL_DATA = [
 
 export const COLOR = {
  orange: "#FF702A",
- gray: "#726964",
  brown: "#342a25",
  medyoYellow: "#efe5e0",
+ white: "#ffffff",
+ gray: "#212529", 
 };
 
 export const TITLE_NAME = "Michael";

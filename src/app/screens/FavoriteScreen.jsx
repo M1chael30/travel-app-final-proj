@@ -6,7 +6,7 @@ const FavoriteScreen = () => {
  return (
   <SafeAreaView>
    <View>
-    <Text>FaviteScreen</Text>
+    <Text>FavoriteScreen</Text>
    </View>
   </SafeAreaView>
  );

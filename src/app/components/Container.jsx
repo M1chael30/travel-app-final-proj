@@ -1,12 +1,16 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { Dimensions, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { COLOR } from "../constants/data";
+import { StatusBar } from "expo-status-bar";
+
+const height = Dimensions.get("window").height;
 
 export default function Container({ children }) {
  return (
   <SafeAreaView>
-   <View style={styles.container}>{children}</View>
+   <View style={styles.container}>
+    {children}
+    <StatusBar style="auto" />
+   </View>
   </SafeAreaView>
  );
 }
@@ -14,6 +18,7 @@ export default function Container({ children }) {
 const styles = StyleSheet.create({
  container: {
   padding: 10,
-  backgroundColor: COLOR.medyoYellow,
+  height: height,
+  position: "relative",
  },
 });

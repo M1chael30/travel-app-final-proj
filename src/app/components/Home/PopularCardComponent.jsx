@@ -4,36 +4,36 @@ import { DollarSign, Heart, MapPinned } from "lucide-react-native";
 import { COLOR } from "../../constants/data";
 import { useNavigation } from "@react-navigation/native";
 
-const MyComponent = ({ location, address, price, isFavorite, img }) => {
+const MyComponent = ({ item }) => {
  const navigation = useNavigation();
 
  return (
   <Card
    style={styles.card}
-   onPress={() => navigation.navigate("Details", { address })}
+   onPress={() => navigation.navigate("Details", { item })}
   >
    {/* heart */}
    <Button style={styles.heart} buttonColor="white">
-    {isFavorite ? (
+    {item.isFavorite ? (
      <Heart color={"black"} size={25} fill={"red"} strokeWidth={0} />
     ) : (
      <Heart color={"black"} size={25} />
     )}
    </Button>
-   <Card.Cover style={styles.img} source={img} resizeMode="cover" />
+   <Card.Cover style={styles.img} source={item.img} />
 
    <Card.Content style={styles.cardContent}>
     <View style={styles.title}>
      {/* location */}
      <Text variant="titleMedium" style={{ fontFamily: "Poppins_700Bold" }}>
-      {location}
+      {item.location}
      </Text>
 
      {/* price */}
      <View style={styles.price}>
       <DollarSign size={17} color={"black"} />
       <Text variant="titleMedium" style={{ fontFamily: "Poppins_400Regular" }}>
-       {price}
+       {item.price}
       </Text>
      </View>
     </View>
@@ -42,7 +42,7 @@ const MyComponent = ({ location, address, price, isFavorite, img }) => {
     <View style={styles.description}>
      <MapPinned color={COLOR.gray} size={15} />
      <Text variant="titleSmall" style={{ fontFamily: "Poppins_400Regular" }}>
-      {address}
+      {item.address}
      </Text>
     </View>
    </Card.Content>

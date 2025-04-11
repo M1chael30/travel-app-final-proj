@@ -12,7 +12,6 @@ const BottomNavigation = () => {
     tabBarShowLabel: false,
     tabBarHideOnKeyboard: true,
     tabBarStyle: {
-     backgroundColor: COLOR.medyoYellow,
      borderTopWidth: 0,
     },
    }}

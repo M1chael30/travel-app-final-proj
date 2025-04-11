@@ -1,20 +1,16 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
 import Container from "../components/Container";
-import { TRAVEL_DATA } from "../constants/data";
+import ButtonComponent from "../components/details/ButtonComponent";
+import DetailComponent from "../components/details/DetailComponent";
+import ImageComponent from "../components/details/ImageComponent";
 
 export default function DetailsScreen({ route }) {
- const { address } = route.params;
- const detail = TRAVEL_DATA.find((item) => item.address === address);
-
- console.log("DetailsScreen", TRAVEL_DATA);
+ const { item } = route.params;
 
  return (
   <Container>
-   <Text>{detail.address}</Text>
-   <Text>{detail.description}</Text>
+   <ImageComponent data={item} />
+   <DetailComponent data={item} />
+   <ButtonComponent />
   </Container>
  );
 }
-
-const styles = StyleSheet.create({});
