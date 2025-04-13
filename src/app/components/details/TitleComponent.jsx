@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   alignItems: "center",
  },
  PRICE_TEXT: {
-  fontFamily: "Poppins_600Medium",
+  fontFamily: "Poppins_700Bold",
   color: COLOR.orange,
   fontSize: 16,
  },

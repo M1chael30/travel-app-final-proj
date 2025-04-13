@@ -1,6 +1,6 @@
 import { Button, Card, Text } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
-import { DollarSign, Heart, MapPinned } from "lucide-react-native";
+import { Heart, MapPinned } from "lucide-react-native";
 import { COLOR } from "../../constants/data";
 import { useNavigation } from "@react-navigation/native";
 
@@ -28,17 +28,9 @@ const MyComponent = ({ item }) => {
      <Text variant="titleMedium" style={{ fontFamily: "Poppins_700Bold" }}>
       {item.location}
      </Text>
-
-     {/* price */}
-     <View style={styles.price}>
-      <DollarSign size={17} color={"black"} />
-      <Text variant="titleMedium" style={{ fontFamily: "Poppins_400Regular" }}>
-       {item.price}
-      </Text>
-     </View>
     </View>
 
-    {/* description */}
+    {/* address */}
     <View style={styles.description}>
      <MapPinned color={COLOR.gray} size={15} />
      <Text variant="titleSmall" style={{ fontFamily: "Poppins_400Regular" }}>
@@ -53,7 +45,7 @@ export default MyComponent;
 
 const styles = StyleSheet.create({
  card: {
-  margin: 10,
+  margin: 5,
   position: "relative",
  },
  img: {
@@ -68,13 +60,6 @@ const styles = StyleSheet.create({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  flexDirection: "row",
-  gap: 1,
- },
- price: {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-start",
   flexDirection: "row",
   gap: 1,
  },

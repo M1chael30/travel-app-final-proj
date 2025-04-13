@@ -1,12 +1,12 @@
 import {
+ Image,
  StyleSheet,
  TouchableOpacity,
  useWindowDimensions,
  View,
 } from "react-native";
 import React from "react";
-import { Avatar, Text } from "react-native-paper";
-import { APP_NAME, TITLE_NAME } from "../../constants/data";
+import { Avatar } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
 const HeaderComponent = () => {
@@ -15,23 +15,19 @@ const HeaderComponent = () => {
 
  return (
   <View style={[styles.container, { height: height / 12 }]}>
-   <View>
-    <Text style={{ fontFamily: "Poppins_700Bold" }} variant="titleLarge">
-     Hello, {TITLE_NAME}
-    </Text>
-    <Text variant="titleSmall" style={{ fontFamily: "Poppins_400Regular" }}>
-     Welcome to {APP_NAME}
-    </Text>
+   <View style={styles.LOGO_CONTAINER}>
+    <Image
+     style={styles.IMG_LOGO}
+     source={require("../../../../assets/secondaryLogo-removebg.png")}
+    />
    </View>
    <TouchableOpacity
     activeOpacity={0.7}
     onPress={() => navigation.navigate("Profile")}
    >
     <Avatar.Image
-     size={45}
-     source={{
-      uri: "https://imgs.search.brave.com/rc4KLgdyT2x883nnk1BWCInH91PPbv4SEJ3eVwQwXDE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pLmlt/Z2ZsaXAuY29tLzQv/MmhnZncuanBn",
-     }}
+     size={50}
+     source={require("../../../../assets/profile.jpg")}
     />
    </TouchableOpacity>
   </View>
@@ -45,5 +41,15 @@ const styles = StyleSheet.create({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
+ },
+ IMG_LOGO: {
+  width: "auto",
+  resizeMode: "center",
+  overflow: "hidden",
+ },
+ LOGO_CONTAINER: {
+  width: 68,
+  borderRadius: 20,
+  overflow: "hidden",
  },
 });

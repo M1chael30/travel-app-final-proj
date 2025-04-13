@@ -1,17 +1,12 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import Container from "../components/Container";
+import ListComponent from "../components/favorite/ListComponent";
+import TitleComponent from "../components/favorite/TitleComponent";
 
-const FavoriteScreen = () => {
+export default function FavoriteScreen() {
  return (
-  <SafeAreaView>
-   <View>
-    <Text>FavoriteScreen</Text>
-   </View>
-  </SafeAreaView>
+  <Container>
+   <TitleComponent />
+   <ListComponent />
+  </Container>
  );
-};
-
-export default FavoriteScreen;
-
-const styles = StyleSheet.create({});
+}

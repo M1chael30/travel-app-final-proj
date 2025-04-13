@@ -1,10 +1,9 @@
-import { Dimensions, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Text } from "react-native-paper";
 import { Clock, Cloud, Star } from "lucide-react-native";
 import { COLOR } from "../../constants/data";
-
-const height = Dimensions.get("window").height;
+import ButtonComponent from "./ButtonComponent";
 
 export default function OverviewComponent({
  travelTime,
@@ -14,10 +13,6 @@ export default function OverviewComponent({
 }) {
  return (
   <View style={styles.CONTAINER}>
-   <Text variant="titleLarge" style={styles.DETAILS}>
-    Details
-   </Text>
-
    <View style={styles.STATUS_CONTAINER}>
     <View style={styles.STATUS}>
      <Clock color={COLOR.gray} size={20} />
@@ -44,6 +39,8 @@ export default function OverviewComponent({
      {description}
     </Text>
    </View>
+
+   <ButtonComponent />
   </View>
  );
 }
@@ -64,11 +61,8 @@ const styles = StyleSheet.create({
   shadowRadius: 1.41,
   elevation: 2,
  },
- DETAILS: {
-  fontFamily: "Poppins_600Medium",
- },
  STATUS_TEXT: {
-  fontFamily: "Poppins_600Medium",
+  fontFamily: "Poppins_500Medium",
  },
  STATUS_CONTAINER: {
   flexDirection: "row",

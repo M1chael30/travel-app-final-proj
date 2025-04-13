@@ -1,5 +1,6 @@
+import { ScrollView } from "react-native";
 import Container from "../components/Container";
-import ButtonComponent from "../components/details/ButtonComponent";
+import ButtonsComponent from "../components/details/ButtonsComponent";
 import DetailComponent from "../components/details/DetailComponent";
 import ImageComponent from "../components/details/ImageComponent";
 
@@ -8,9 +9,11 @@ export default function DetailsScreen({ route }) {
 
  return (
   <Container>
-   <ImageComponent data={item} />
-   <DetailComponent data={item} />
-   <ButtonComponent />
+   <ScrollView showsVerticalScrollIndicator={false}>
+    <ButtonsComponent isFavorite={item.isFavorite} />
+    <ImageComponent data={item} />
+    <DetailComponent data={item} />
+   </ScrollView>
   </Container>
  );
 }

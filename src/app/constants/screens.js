@@ -10,18 +10,21 @@ import DetailsScreen from "../screens/DetailsScreen";
 import { Heart, Home, User } from "lucide-react-native";
 
 export const STACK_SCREENS = [
- // {
- //  name: "Splash",
- //  component: SplashScreen,
- // },
- // {
- //  name: "Login",
- //  component: LoginScreen,
- // },
- // {
- //  name: "Register",
- //  component: RegisterScreen,
- // },
+ {
+  name: "Splash",
+  component: SplashScreen,
+  headerShown: false,
+ },
+ {
+  name: "Login",
+  component: LoginScreen,
+  headerShown: false,
+ },
+ {
+  name: "Register",
+  component: RegisterScreen,
+  headerShown: false,
+ },
  {
   name: "HomeIndex",
   component: BottomNavigation,

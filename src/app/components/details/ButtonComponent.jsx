@@ -19,15 +19,11 @@ export default function ButtonComponent() {
 
 const styles = StyleSheet.create({
  BUTTON: {
-  marginTop: 20,
-  backgroundColor: COLOR.gray,
+  backgroundColor: COLOR.orange,
   borderRadius: 10,
   paddingVertical: 5,
   paddingHorizontal: 15,
-  position: "absolute",
-  bottom: 20,
-  left: 10,
-  right: 10,
+  marginTop: 10,
  },
  BUTTON_TEXT: {
   color: COLOR.white,

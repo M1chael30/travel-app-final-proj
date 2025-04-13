@@ -4,11 +4,10 @@ import PopularCardComponent from "./PopularCardComponent";
 import { TRAVEL_DATA } from "../../constants/data";
 import { Text } from "react-native-paper";
 
+const { height } = Dimensions.get("window");
 const PopularDestinationComponent = () => {
- const { height } = Dimensions.get("window");
-
  return (
-  <View style={[styles.container, { height: height * 0.82 }]}>
+  <View style={styles.container}>
    <Text
     variant="titleMedium"
     style={{ fontFamily: "Poppins_700Bold", marginBottom: 10 }}
@@ -30,5 +29,6 @@ export default PopularDestinationComponent;
 const styles = {
  container: {
   marginTop: 20,
+  height: height * 0.82,
  },
 };

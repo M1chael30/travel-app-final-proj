@@ -1,8 +1,8 @@
-import { StyleSheet, View } from "react-native";
-import { Button } from "react-native-paper";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { COLOR } from "../../constants/data";
-import { Heart, MoveLeft } from "lucide-react-native";
+import { ChevronLeft, Heart } from "lucide-react-native";
 import { useNavigation } from "@react-navigation/native";
+import { Text } from "react-native-paper";
 
 export default function ButtonsComponent({ isFavorite }) {
  const navigation = useNavigation();
@@ -10,20 +10,19 @@ export default function ButtonsComponent({ isFavorite }) {
  return (
   <View style={styles.CONTAINER}>
    <View style={styles.CONTAINER_BTN}>
-    <Button
-     buttonColor={COLOR.white}
-     style={styles.BTN}
-     onPress={() => navigation.goBack()}
-    >
-     <MoveLeft size={25} color={COLOR.gray} />
-    </Button>
-    <Button buttonColor={COLOR.white} style={styles.BTN}>
+    <TouchableOpacity onPress={() => navigation.goBack()} activeOpacity={0.7}>
+     <ChevronLeft size={30} color={COLOR.gray} />
+    </TouchableOpacity>
+    <Text variant="titleLarge" style={styles.DETAILS}>
+     Details
+    </Text>
+    <TouchableOpacity activeOpacity={0.7}>
      {isFavorite ? (
-      <Heart size={25} fill={"red"} strokeWidth={0} />
+      <Heart size={30} fill={"red"} strokeWidth={0} />
      ) : (
       <Heart color={COLOR.gray} size={25} />
      )}
-    </Button>
+    </TouchableOpacity>
    </View>
   </View>
  );
@@ -31,15 +30,16 @@ export default function ButtonsComponent({ isFavorite }) {
 
 const styles = StyleSheet.create({
  CONTAINER: {
-  position: "absolute",
-  top: 10,
   width: "100%",
-  zIndex: 1,
+  marginBottom: 20,
  },
  CONTAINER_BTN: {
   display: "flex",
   flexDirection: "row",
   justifyContent: "space-between",
-  marginHorizontal: 10,
+  alignItems: "center",
+ },
+ DETAILS: {
+  fontFamily: "Poppins_700Bold",
  },
 });
