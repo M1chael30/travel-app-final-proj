@@ -125,6 +125,7 @@ export const COLOR = {
  medyoYellow: "#efe5e0",
  white: "#ffffff",
  gray: "#212529",
+ red: "#d90429",
 };
 
 export const TITLE_NAME = "Michael";

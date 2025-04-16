@@ -1,33 +1,37 @@
 import {
+ Dimensions,
  Image,
  StyleSheet,
  TouchableOpacity,
- useWindowDimensions,
  View,
 } from "react-native";
-import React from "react";
-import { Avatar } from "react-native-paper";
+import { Avatar, Text } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
+import { APP_NAME } from "../../constants/data";
+
+const height = Dimensions.get("window").height;
 
 const HeaderComponent = () => {
- const { height } = useWindowDimensions();
  const navigation = useNavigation();
 
  return (
-  <View style={[styles.container, { height: height / 12 }]}>
+  <View style={styles.container}>
    <View style={styles.LOGO_CONTAINER}>
     <Image
      style={styles.IMG_LOGO}
      source={require("../../../../assets/secondaryLogo-removebg.png")}
     />
    </View>
+   <Text variant="titleLarge" style={styles.TITLE}>
+    {APP_NAME}
+   </Text>
    <TouchableOpacity
     activeOpacity={0.7}
     onPress={() => navigation.navigate("Profile")}
    >
     <Avatar.Image
      size={50}
-     source={require("../../../../assets/profile.jpg")}
+     source={require("../../../../assets/profile2.jpg")}
     />
    </TouchableOpacity>
   </View>
@@ -41,6 +45,7 @@ const styles = StyleSheet.create({
   flexDirection: "row",
   alignItems: "center",
   justifyContent: "space-between",
+  height: height * 0.08,
  },
  IMG_LOGO: {
   width: "auto",
@@ -51,5 +56,8 @@ const styles = StyleSheet.create({
   width: 68,
   borderRadius: 20,
   overflow: "hidden",
+ },
+ TITLE: {
+  fontFamily: "Poppins_500Medium",
  },
 });

@@ -1,7 +1,6 @@
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import SplashScreen from "../screens/SplashScreen";
-import BottomNavigation from "../navigation/BottomNavigation";
 import HomeScreen from "../screens/HomeScreen";
 import FavoriteScreen from "../screens/FavoriteScreen";
 import ProfileScreen from "../screens/ProfileScreen";
@@ -23,16 +22,6 @@ export const STACK_SCREENS = [
  {
   name: "Register",
   component: RegisterScreen,
-  headerShown: false,
- },
- {
-  name: "HomeIndex",
-  component: BottomNavigation,
-  headerShown: false,
- },
- {
-  name: "Details",
-  component: DetailsScreen,
   headerShown: false,
  },
 ];

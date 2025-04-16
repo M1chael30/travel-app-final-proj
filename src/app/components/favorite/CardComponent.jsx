@@ -18,7 +18,7 @@ export default function CardComponent({ item }) {
      <View style={styles.CARD_TITLE_CONTAINER}>
       <View style={styles.CARD_TITLE_CONTAINER_INNER}>
        <Text variant="titleMedium" style={styles.CARD_TITLE}>
-        {item.location}
+        {item.location.substring(0, 13) + "..."}
        </Text>
        <View style={styles.STATUS_CONTAINER}>
         <View style={styles.STATUS}>

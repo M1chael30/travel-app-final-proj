@@ -1,17 +1,20 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
+import Container from "../components/Container";
+import ImageContainer from "../components/Profile/ImageContainer";
+import TitleComponent from "../components/Profile/TitleComponent";
+import CardComponent from "../components/Profile/CardComponent";
+import ButtonComponent from "../components/Profile/ButtonComponent";
 
 const ProfileScreen = () => {
  return (
-  <SafeAreaView>
-   <View>
-    <Text>ProfileScreen</Text>
-   </View>
-  </SafeAreaView>
+  <>
+   <Container>
+    <ImageContainer />
+    <TitleComponent />
+    <CardComponent />
+    <ButtonComponent />
+   </Container>
+  </>
  );
 };
 
 export default ProfileScreen;
-
-const styles = StyleSheet.create({});

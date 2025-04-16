@@ -1,14 +1,17 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import Container from "../components/Container";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
+import { AuthContext } from "../context/AuthProvider";
 
 const SplashScreen = () => {
  const navigation = useNavigation();
 
+ const { currentUser } = useContext(AuthContext);
+
  useEffect(() => {
   setTimeout(() => {
-   navigation.replace("HomeIndex");
+   navigation.replace(currentUser ? "HomeIndex" : "Login");
   }, 1500);
  }, [navigation]);
 

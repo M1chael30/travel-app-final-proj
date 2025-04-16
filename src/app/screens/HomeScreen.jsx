@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../components/Container";
 import HeaderComponent from "../components/Home/HeaderComponent";
 import PopularDestinationComponent from "../components/Home/PopularDestinationComponent";
