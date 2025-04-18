@@ -1,37 +1,34 @@
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-import React, { useContext, useState } from "react";
-import { AuthContext } from "../context/AuthProvider";
 import { Button, Card, Text, TextInput } from "react-native-paper";
-import { useNavigation } from "@react-navigation/native";
 import Container from "../components/Container";
 import { COLOR } from "../constants/data";
+import { useAuth } from "../context/AuthProvider";
+import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginScreen = () => {
  const navigation = useNavigation();
- const { setCurrentUser } = useContext(AuthContext);
+ const [email, setEmail] = useState("");
+ const [password, setPassword] = useState("");
+ const value = useAuth();
 
- const [email, setEmail] = useState(null);
- const [password, setPassword] = useState(null);
-
- const userObj = {
-  id: new Date().getTime(),
-  name: "Princess",
-  email: email,
-  password: password,
- };
-
- const handleLogin = () => {
+ const login = async () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.(com|me)$/;
 
+  // validate email and password and check a valid email
   if (!email || !password) {
    alert("All fields are required");
    return;
-  } else if (!emailRegex.test(email)) {
-   alert("Enter a valid email");
-   return;
   }
 
-  return setCurrentUser(userObj);
+  if (!emailRegex.test(email)) {
+   alert("Enter a valid email");
+   setEmail("");
+   return;
+  }
+  setEmail("");
+  setPassword("");
+  await value.login_function(email, password);
  };
 
  return (
@@ -72,7 +69,7 @@ const LoginScreen = () => {
        buttonColor={COLOR.orange}
        mode="contained"
        style={styles.REGISTER_BTN}
-       onPress={handleLogin}
+       onPress={login}
       >
        Login
       </Button>

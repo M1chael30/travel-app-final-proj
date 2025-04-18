@@ -1,18 +1,17 @@
-import React, { useContext } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { STACK_SCREENS } from "../constants/screens";
 import BottomNavigation from "./BottomNavigation";
-import { AuthContext } from "../context/AuthProvider";
 import DetailsScreen from "../screens/DetailsScreen";
+import { useAuth } from "../context/AuthProvider";
 
 const Stack = createNativeStackNavigator();
 
 const StackNavigation = () => {
- const { currentUser } = useContext(AuthContext);
+ const value = useAuth();
 
  return (
   <Stack.Navigator screenOptions={{ headerShown: false }}>
-   {!currentUser ? (
+   {!value.current_user ? (
     STACK_SCREENS.map((screen) => {
      return (
       <Stack.Screen
@@ -26,10 +25,7 @@ const StackNavigation = () => {
    ) : (
     <>
      <Stack.Screen name="HomeIndex" component={BottomNavigation} />
-     <Stack.Screen
-      name="Details"
-      component={DetailsScreen}
-     />
+     <Stack.Screen name="Details" component={DetailsScreen} />
     </>
    )}
   </Stack.Navigator>

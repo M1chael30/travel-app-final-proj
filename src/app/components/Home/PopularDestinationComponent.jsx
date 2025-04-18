@@ -16,7 +16,7 @@ const PopularDestinationComponent = () => {
    </Text>
    <FlatList
     data={TRAVEL_DATA}
-    keyExtractor={(item) => item.address}
+    keyExtractor={(item) => item.id}
     renderItem={({ item }) => <PopularCardComponent item={item} />}
     showsVerticalScrollIndicator={false}
    />

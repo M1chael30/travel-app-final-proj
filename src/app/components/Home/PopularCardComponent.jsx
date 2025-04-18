@@ -1,11 +1,19 @@
-import { Button, Card, Text } from "react-native-paper";
+import { Card, Text } from "react-native-paper";
 import { StyleSheet, View } from "react-native";
 import { Heart, MapPinned } from "lucide-react-native";
 import { COLOR } from "../../constants/data";
 import { useNavigation } from "@react-navigation/native";
+import { useData } from "../../context/DataProvider";
+import { useAuth } from "../../context/AuthProvider";
 
 const MyComponent = ({ item }) => {
  const navigation = useNavigation();
+ const { favorites } = useData();
+ const { current_user } = useAuth();
+ const isFavorite = favorites.some(
+  (f) => f.travel_id === item.id && f.id === current_user?.id
+ );
+
 
  return (
   <Card
@@ -13,13 +21,13 @@ const MyComponent = ({ item }) => {
    onPress={() => navigation.navigate("Details", { item })}
   >
    {/* heart */}
-   <Button style={styles.heart} buttonColor="white">
-    {item.isFavorite ? (
-     <Heart color={"black"} size={25} fill={"red"} strokeWidth={0} />
+   <View style={styles.heart}>
+    {isFavorite ? (
+     <Heart color={"black"} size={30} fill={"red"} strokeWidth={0} />
     ) : (
-     <Heart color={"black"} size={25} />
+     <Heart color={"black"} size={30} strokeWidth={2} />
     )}
-   </Button>
+   </View>
    <Card.Cover style={styles.img} source={item.img} />
 
    <Card.Content style={styles.cardContent}>
@@ -72,8 +80,8 @@ const styles = StyleSheet.create({
  },
  heart: {
   position: "absolute",
-  top: 10,
-  right: 10,
+  right: 20,
+  top: 20,
   zIndex: 1,
  },
 });

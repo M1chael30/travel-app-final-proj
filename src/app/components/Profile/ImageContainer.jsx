@@ -12,7 +12,7 @@ export default function ImageContainer() {
    />
    <Avatar.Image
     size={100}
-    source={require("../../../../assets/profile2.jpg")}
+    source={{ uri: "https://avatar.iran.liara.run/public" }}
     style={styles.AVATAR_IMG}
    />
   </View>

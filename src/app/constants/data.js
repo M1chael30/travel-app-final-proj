@@ -1,8 +1,11 @@
 export const TRAVEL_DATA = [
  {
+  id: 1,
   address: "Khanh Hoa Province, Vietnam",
   location: "Nha Trang",
-  img: require("../../../assets/vietnam.jpg"),
+  img: {
+   uri: "https://imgs.search.brave.com/3-Rw2xoHxeEkviR960YUkvtzfeLXqPbJRMkHYE0ksqs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvODg1/NTY4MDkvZnIvcGhv/dG8vYmVhY2gtaW4t/bmhhLXRyYW5nLXZp/ZXRuYW0uanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPVZoTU4y/M19DN01CYW9xa0Uy/UHZyZWEzYU5tYlV0/dTRWakRVZGhmMk96/M3M9",
+  },
   description:
    "Spend a day in paradise on an island cruise from Nha Trang by speedboat. Explore underwater life while snorkeling, relax at Dong Tam, and enjoy lunch in Con Se Tre Village.",
   weather: "28°C",
@@ -12,9 +15,12 @@ export const TRAVEL_DATA = [
   price: 100,
  },
  {
+  id: 2,
   address: "Paris, France",
   location: "Eiffel Tower",
-  img: require("../../../assets/paris.jpg"),
+  img: {
+   uri: "https://imgs.search.brave.com/cb2dcsSOdte0JIW8l70IMGrGmjeoZv62KTWooDQQlOk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvOTI0/ODk0MzI0L3Bob3Rv/L2VpZmZlbC10b3dl/ci1pbi1wYXJpcy1m/cmFuY2UuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPS1KdHZG/S2VGUXF5NGd4aUNh/VFFYQmxobE1LWHdz/blV1UHE4aVVILWRx/T289",
+  },
   description:
    "Visit the iconic Eiffel Tower in Paris, enjoy a Seine River cruise, and immerse yourself in the city's romantic charm, museums, and historic landmarks.",
   weather: "8°C",
@@ -24,9 +30,12 @@ export const TRAVEL_DATA = [
   price: 200,
  },
  {
+  id: 3,
   address: "Spain",
   location: "Cudillero",
-  img: require("../../../assets/spain.jpg"),
+  img: {
+   uri: "https://imgs.search.brave.com/lQVjkviE_IGdOV3p-5e74SDnfLtIpm6Z2kt0LWs92xw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTg4/OTEwNTc3L2VzL2Zv/dG8vY3VkaWxsZXJv/LmpwZz9zPTYxMng2/MTImdz0wJms9MjAm/Yz1KSDd6Vi1VajNw/S09HLU96NWJvZGZw/WjdLczRkVVdNRG9r/dVd6YWx6cllrPQ",
+  },
   description:
    "The coastal fishing village of Cudillero is known for its colorful houses and hillside location on northern Spain’s Asturian coast. This small town by the sea is where Spaniards come when they’re seeking beach time but want to escape the crowds.",
   weather: "11°C",
@@ -36,9 +45,12 @@ export const TRAVEL_DATA = [
   price: 1000,
  },
  {
+  id: 4,
   address: "Jakarta, Indonesia",
   location: "Pantjoran PIK",
-  img: require("../../../assets/china.jpg"),
+  img: {
+   uri: "https://imgs.search.brave.com/Xe0Q6aQOYm7WHsvSg4ht-ae3P0UBJ0ck-tDxz0wol-k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tYW51/YWwuY28uaWQvd3At/Y29udGVudC91cGxv/YWRzLzIwMjIvMDIv/bWFudWFsLXBhbnRq/b3Jhbi1waWstMTct/OTgweDcxOS5qcGc",
+  },
   description:
    "Pantjoran PIK is one of the many hangout places in Pantai Indah Kapuk Jakarta. They have many stalls that sell Chinese Food.",
   weather: "28°C",
@@ -48,6 +60,7 @@ export const TRAVEL_DATA = [
   price: 950,
  },
  {
+  id: 5,
   address: "Tokyo, Japan",
   location: "Shibuya Crossing",
   img: {
@@ -62,6 +75,7 @@ export const TRAVEL_DATA = [
   price: 800,
  },
  {
+  id: 6,
   address: "New York, USA",
   location: "Times Square",
   img: {
@@ -76,6 +90,7 @@ export const TRAVEL_DATA = [
   price: 1200,
  },
  {
+  id: 7,
   address: "Rome, Italy",
   location: "Colosseum",
   img: {
@@ -90,6 +105,7 @@ export const TRAVEL_DATA = [
   price: 950,
  },
  {
+  id: 8,
   address: "Sydney, Australia",
   location: "Sydney Opera House",
   img: {
@@ -104,6 +120,7 @@ export const TRAVEL_DATA = [
   price: 1100,
  },
  {
+  id: 9,
   address: "Rio de Janeiro, Brazil",
   location: "Christ the Redeemer",
   img: {

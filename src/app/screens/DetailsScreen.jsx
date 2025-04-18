@@ -10,7 +10,7 @@ export default function DetailsScreen({ route }) {
  return (
   <Container>
    <ScrollView showsVerticalScrollIndicator={false}>
-    <ButtonsComponent isFavorite={item.isFavorite} />
+    <ButtonsComponent item={item} />
     <ImageComponent data={item} />
     <DetailComponent data={item} />
    </ScrollView>

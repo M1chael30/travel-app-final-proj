@@ -1,19 +1,18 @@
 import { StyleSheet, View } from "react-native";
-import React, { useContext } from "react";
 import { Button, Text } from "react-native-paper";
 import { COLOR } from "../../constants/data";
 import { LogOut } from "lucide-react-native";
-import { AuthContext } from "../../context/AuthProvider";
+import { useAuth } from "../../context/AuthProvider";
 
 const LogoutComponent = () => {
- const { setCurrentUser } = useContext(AuthContext);
+ const value = useAuth();
 
  return (
   <Button
    buttonColor={COLOR.gray}
    textColor={COLOR.white}
    style={styles.BTN}
-   onPress={() => setCurrentUser(null)}
+   onPress={value.logout_function}
   >
    <View style={styles.BTN_CONTENT}>
     <Text variant="labelLarge" style={styles.LOGOUT}>

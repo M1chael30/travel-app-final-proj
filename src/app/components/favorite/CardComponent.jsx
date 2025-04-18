@@ -3,14 +3,29 @@ import { Card, Text } from "react-native-paper";
 import { COLOR } from "../../constants/data";
 import { Cloud, Minus, Star } from "lucide-react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+import { useData } from "../../context/DataProvider";
 
-export default function CardComponent({ item }) {
+export default function CardComponent({ item, indexKey }) {
  const navigation = useNavigation();
+ const [isFavorite, setIsFavorites] = useState(true);
+ const { handleToggleIsFavorite, favorites } = useData();
+
+ const removeFavorite = async () => {
+  if (!favorites) {
+   return false;
+  }
+
+  setIsFavorites(!isFavorite);
+
+  handleToggleIsFavorite(item.id, !isFavorite);
+ };
 
  return (
   <TouchableOpacity
    activeOpacity={1}
    onPress={() => navigation.navigate("Details", { item })}
+   key={item.id}
   >
    <Card style={styles.CARD}>
     <Card.Content style={styles.CARD_CONTENT}>
@@ -18,7 +33,7 @@ export default function CardComponent({ item }) {
      <View style={styles.CARD_TITLE_CONTAINER}>
       <View style={styles.CARD_TITLE_CONTAINER_INNER}>
        <Text variant="titleMedium" style={styles.CARD_TITLE}>
-        {item.location.substring(0, 13) + "..."}
+        {item.location?.substring(0, 13) + "..."}
        </Text>
        <View style={styles.STATUS_CONTAINER}>
         <View style={styles.STATUS}>
@@ -40,7 +55,7 @@ export default function CardComponent({ item }) {
         </View>
        </View>
       </View>
-      <TouchableOpacity activeOpacity={0.7}>
+      <TouchableOpacity activeOpacity={0.7} onPress={removeFavorite}>
        <View style={styles.CARD_TITLE_ICON}>
         <Minus size={25} color={COLOR.white} />
        </View>

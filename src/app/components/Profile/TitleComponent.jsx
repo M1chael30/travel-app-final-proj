@@ -2,13 +2,15 @@ import { Dimensions, StyleSheet, View } from "react-native";
 import { APP_NAME, COLOR } from "../../constants/data";
 import { AtSign, Mail } from "lucide-react-native";
 import { Text } from "react-native-paper";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider";
+import { useAuth } from "../../context/AuthProvider";
 
 const height = Dimensions.get("window").height;
 
-export default function TitleComponent() {
- const { currentUser } = useContext(AuthContext);
+const TitleComponent = () => {
+ const value = useAuth();
+ const USERS = value.users;
+ const CURRENT_USER = value.current_user?.id;
+ const user = USERS.find((u) => u.id === CURRENT_USER);
 
  return (
   <View style={styles.APP_CONTAINER}>
@@ -21,18 +23,20 @@ export default function TitleComponent() {
 
    <View style={styles.TITLE_CONTAINER}>
     <Text variant="titleLarge" style={styles.TITLE_TEXT}>
-     {currentUser?.name}
+     {user?.username || "Guest"}
     </Text>
     <View style={styles.EMAIL_CONTAINER}>
      <Mail color={COLOR.gray} size={15} />
      <Text variant="titleSmall" style={styles.EMAIL}>
-      {currentUser?.email}
+      {user?.email || "Not logged in"}
      </Text>
     </View>
    </View>
   </View>
  );
-}
+};
+
+export default TitleComponent;
 
 const styles = StyleSheet.create({
  APP_CONTAINER: {

@@ -1,46 +1,47 @@
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import Container from "../components/Container";
 import { Button, Card, Text, TextInput } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import { COLOR } from "../constants/data";
-import { AuthContext } from "../context/AuthProvider";
+import { useAuth } from "../context/AuthProvider";
 
 const RegisterScreen = () => {
  const navigation = useNavigation();
- const { setCurrentUser } = useContext(AuthContext);
+ const value = useAuth();
 
- const [email, setEmail] = useState(null);
- const [password, setPassword] = useState(null);
- const [confirmPassword, setConfirmPassword] = useState(null);
+ const [email, setEmail] = useState("");
+ const [username, setUsername] = useState("");
+ const [password, setPassword] = useState("");
+ const [confirmPassword, setConfirmPassword] = useState("");
 
- const userObj = {
-  id: new Date().getTime(),
-  name: "Princess",
-  email: email,
-  password: password,
- };
-
- const handleRegister = async () => {
+ const register = async () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.(com|me)$/;
 
-  if (!email || !password || !confirmPassword) {
+  // validate email and password and check a valid email
+  if (!email || !password || !confirmPassword || !username) {
    alert("All fields are required");
    return;
   }
 
   if (!emailRegex.test(email)) {
+   setPassword("");
+   setConfirmPassword("");
    alert("Enter a valid email");
    return;
   }
+
   if (confirmPassword !== password) {
-   alert("Password does not match");
    setPassword("");
    setConfirmPassword("");
+   alert("Password doesn't match");
    return;
   }
-
-  return setCurrentUser(userObj);
+  setEmail("");
+  setUsername("");
+  setConfirmPassword("");
+  setPassword("");
+  await value.register_function(email, username, password);
  };
 
  return (
@@ -67,6 +68,14 @@ const RegisterScreen = () => {
        />
        <TextInput
         mode="outlined"
+        placeholder="Username / Display name"
+        outlineColor={COLOR.orange}
+        activeOutlineColor={COLOR.orange}
+        value={username}
+        onChangeText={(value) => setUsername(value)}
+       />
+       <TextInput
+        mode="outlined"
         placeholder="Password"
         outlineColor={COLOR.orange}
         activeOutlineColor={COLOR.orange}
@@ -90,7 +99,7 @@ const RegisterScreen = () => {
        buttonColor={COLOR.orange}
        mode="contained"
        style={styles.REGISTER_BTN}
-       onPress={handleRegister}
+       onPress={register}
       >
        Register
       </Button>

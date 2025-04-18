@@ -31,7 +31,7 @@ const HeaderComponent = () => {
    >
     <Avatar.Image
      size={50}
-     source={require("../../../../assets/profile2.jpg")}
+     source={{ uri: "https://avatar.iran.liara.run/public" }}
     />
    </TouchableOpacity>
   </View>
